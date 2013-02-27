@@ -1,0 +1,11 @@
+#name : docfile
+# --
+/**
+ * @file   `(file-name-nondirectory (buffer-file-name))`
+ * @author jianhao@taobao.com
+ * @date   `(format-time-string "%Y-%m-%d")`
+ *
+ * @brief ${2:BRIEF}
+ *
+ * ${3:DESCRIPTION}
+ */

@@ -1,0 +1,9 @@
+#name : docgroup
+# --
+/*! @addtogroup ${1:group}
+ * @{
+  */
+
+
+
+/*! @} */

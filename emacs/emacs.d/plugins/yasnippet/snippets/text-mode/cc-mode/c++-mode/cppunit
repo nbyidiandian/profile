@@ -1,0 +1,26 @@
+#name : cppunit
+# --
+#include <cppunit/extensions/HelperMacros.h>
+
+namespace ${2:`(downcase (file-name-nondirectory (file-name-sans-extension (buffer-file-name))))`}
+{
+
+class ${3:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`} : public CppUnit::TestFixture
+{
+	CPPUNIT_TEST_SUITE($3);
+
+	CPPUNIT_TEST(${4:testMethod});
+
+	CPPUNIT_TEST_SUITE_END();
+
+protected :
+	void $4();
+};
+
+CPPUNIT_TEST_SUITE_REGISTRATION($3);
+
+void $3::$4()
+{
+}
+
+} /* end of namespace $2 */

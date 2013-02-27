@@ -1,0 +1,3 @@
+#name : CPPUNIT_ASSERT
+# --
+CPPUNIT_ASSERT(${1:true})
