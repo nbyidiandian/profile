@@ -1,0 +1,23 @@
+#name : acomponents class declare
+# --
+#ifndef ${1:_ACOMPONENTS`(file-name-cpp-include-guard buffer-file-name)`}
+#define $1
+
+BEGIN_ACOMPONENTS_NAMESPACE(${2:`(file-name-nondirectory
+                                  (directory-file-name default-directory))`});
+
+class ${3:`(file-name-delemited-to-camel-case buffer-file-name)`}
+{
+public:
+    $3();
+    virtual ~$3();
+private:
+    $3(const $3& );
+    $3& operator=(const $3& );
+private:
+    ACOMPONENTS_LOG_DECLARE();
+};
+
+END_ACOMPONENTS_NAMESPACE($2);
+
+#endif // $1

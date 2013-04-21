@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/lisxzwei/bin/holmes/cgi-bin'
-let g:netrw_dirhist_2='/Users/lisxzwei/bin/holmes'
-let g:netrw_dirhist_3='/Volumes/Elements/autorun'
-let g:netrw_dirhist_4='/usr/local/Cellar/cscope/15.7a/bin'
-let g:netrw_dirhist_5='/Volumes/HD/Develop/acomponents/acomponents/network'
-let g:netrw_dirhist_6='/Volumes/HD/Develop/github/auto-sync'

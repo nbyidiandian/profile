@@ -1,0 +1,17 @@
+#name : acomponents class define
+# --
+#include <acomponents/${1:`(file-name-nondirectory
+                            (directory-file-name
+                             default-directory))`}/${2:`(file-name-base
+                                                         buffer-file-name)`}.h>
+
+BEGIN_ACOMPONENTS_NAMESPACE($1);
+ACOMPONENTS_LOG_SETUP($1, ${3:`(file-name-delemited-to-camel-case buffer-file-name)`});
+
+$3::$3() {
+}
+
+$3::~$3() {
+}
+
+END_ACOMPONENTS_NAMESPACE($1);

@@ -1,8 +1,12 @@
 #name : class ... { ... }
 # --
-class ${1:Name}
+class ${1:`(file-name-base (buffer-file-name))`}
 {
-public :
-    ${1:$(yas/substr text "[^: ]*")}($2);
-    virtual ~${1:$(yas/substr text "[^: ]*")}();
+public:
+    $1($2);
+    virtual ~$1();
+
+private:
+    $1(const $1 &);
+    $1& operator=(const $1 &);
 };

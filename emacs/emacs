@@ -19,6 +19,34 @@ Deletes whitespace at join."
   (call-interactively 'indent-region))
 
 
+
+(defun file-name-delemited-to-camel-case (name)
+  "convert \"file_name\" to \"FileName\" "
+  (progn
+    (mapconcat #'capitalize (split-string
+                             (file-name-base name) "_") "")))
+
+
+(defun file-name-base (name)
+  "This function is the composition of file-name-sans-extension and file-name-nondirectory"
+  (progn
+    (file-name-nondirectory (file-name-sans-extension name))))
+
+
+(defun file-name-cpp-include-guard (name)
+  "Include guard for cpp header file"
+  (progn
+    (upcase (concat "_"
+                    (file-name-nondirectory
+                     (directory-file-name
+                      default-directory))
+                    "_"
+                    (file-name-nondirectory (file-name-sans-extension name))
+                    "_"
+                    (file-name-extension name)
+                    "_"))))
+
+
 ;; bind keys
 (global-set-key (kbd "C-k") 'kill-and-join-forward)
 (global-set-key (kbd "RET") 'newline-and-indent)
