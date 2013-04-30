@@ -1,6 +1,6 @@
 #name : sp class define
 # --
-#ifndef ${1:_SP_BASIC`(file-name-cpp-include-guard buffer-file-name)`}
+#ifndef ${1:`(file-name-cpp-include-guard "_" buffer-file-name "_" 2)`}
 #define $1
 
 namespace ${2:sp_basic}
