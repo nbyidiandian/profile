@@ -3,6 +3,10 @@
 #ifndef ${1:`(file-name-cpp-include-guard "_" buffer-file-name "_" 3)`}
 #define $1
 
+#include <cppunit/extensions/HelperMacros.h>
+#include <acomponents/common/common.h>
+#include <acomponents/common/log.h>
+
 BEGIN_ACOMPONENTS_NAMESPACE(${2:`(file-name-nondirectory
 			                      (directory-file-name
 								   (file-name-directory

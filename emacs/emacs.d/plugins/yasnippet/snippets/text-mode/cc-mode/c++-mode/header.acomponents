@@ -3,10 +3,16 @@
 #ifndef ${1:`(file-name-cpp-include-guard "_" buffer-file-name "_" 2)`}
 #define $1
 
+#include <tr1/memory>
+#include <acomponents/common/common.h>
+#include <acomponents/common/log.h>
+
 BEGIN_ACOMPONENTS_NAMESPACE(${2:`(file-name-nondirectory
                                   (directory-file-name default-directory))`});
+class ${3:`(file-name-delemited-to-camel-case buffer-file-name)`};
+typedef std::tr1::shared_ptr<$3> $3Ptr;
 
-class ${3:`(file-name-delemited-to-camel-case buffer-file-name)`}
+class $3
 {
 public:
     $3();
