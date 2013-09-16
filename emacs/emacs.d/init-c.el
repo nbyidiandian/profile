@@ -1,38 +1,5 @@
 
 
-(defun kill-and-join-forward (&optional arg)
-  "If at end of line, join with following; otherwise kill line.
-Deletes whitespace at join."
-  (interactive "P")
-  (if (and (eolp) (not (bolp)))
-      (progn
-        (delete-indentation t)
-        (if (looking-at " $")
-            (delete-char 1)))
-    (kill-line arg)))
-
-
-(defun yank-and-indent ()
-  "Yank and then indent the newly formed region according to mode."
-  (interactive)
-  (yank)
-  (call-interactively 'indent-region))
-
-
-
-(defun file-name-delemited-to-camel-case (name)
-  "convert \"file_name\" to \"FileName\" "
-  (progn
-    (mapconcat #'capitalize (split-string
-                             (file-name-base name) "_") "")))
-
-
-(defun file-name-base (name)
-  "This function is the composition of file-name-sans-extension and file-name-nondirectory"
-  (progn
-    (file-name-nondirectory (file-name-sans-extension name))))
-
-
 (defun file-name-cpp-include-guard (prefix name suffix level)
   "Include guard for cpp header file"
   (let ((guard (concat (file-name-base name) "_" (file-name-extension name)))
@@ -42,40 +9,6 @@ Deletes whitespace at join."
       (setq name (directory-file-name (file-name-directory name)))
       (setq level (1- level)))
     (upcase (concat prefix guard suffix))))
-(file-name-cpp-include-guard "_SP_BASIC_" "/home/admin/acomponents/network/hello.h" "_" 1)
-
-
-;; bind keys
-(global-set-key (kbd "C-k") 'kill-and-join-forward)
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "C-y") 'yank-and-indent)
-(global-set-key (kbd "C-s") 'isearch-forward-regexp)
-(global-set-key (kbd "C-r") 'isearch-backward-regexp)
-
-
-
-;; all backups goto ~/.backups instead in the current directory
-(setq backup-directory-alist (quote (("." . "~/.backups"))))
-
-;; column-number
-(setq column-number-mode t)
-
-;; language
-(set-language-environment 'Chinese-GB)
-(prefer-coding-system 'utf-8-unix)
-
-;; highlight matching pairs of parentheses and other characters
-;; (show-paren-mode 1)
-
-;; hide menu-bar
-(menu-bar-mode -1)
-
-
-;; indent
-(setq-default c-default-style "k&r"
-              c-basic-offset 4
-              tab-width 4
-              indent-tabs-mode nil)
 
 
 ;; use c++-mode for .h file
@@ -109,7 +42,6 @@ Deletes whitespace at join."
     ;;; indent
     (c-offsets-alist
      . ((access-label . -) ;; other
-        (case-label . 0) ;; case
         ))))
 
 (defun custom-google-set-c-style ()
@@ -182,12 +114,3 @@ Deletes whitespace at join."
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-sync/")
 (require 'auto-sync)
 (auto-sync-after-save-buffer-done)
-
-;;; uniquify
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets) 
-
-;;; emacs lisp package archive
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))

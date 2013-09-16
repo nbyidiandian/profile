@@ -1,4 +1,5 @@
 
+(message "hello world")
 
 (defun kill-and-join-forward (&optional arg)
   "If at end of line, join with following; otherwise kill line.
@@ -109,7 +110,6 @@ Deletes whitespace at join."
     ;;; indent
     (c-offsets-alist
      . ((access-label . -) ;; other
-        (case-label . 0) ;; case
         ))))
 
 (defun custom-google-set-c-style ()
@@ -182,12 +182,3 @@ Deletes whitespace at join."
 (add-to-list 'load-path "~/.emacs.d/plugins/auto-sync/")
 (require 'auto-sync)
 (auto-sync-after-save-buffer-done)
-
-;;; uniquify
-(require 'uniquify)
-(setq uniquify-buffer-name-style 'post-forward-angle-brackets) 
-
-;;; emacs lisp package archive
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))

@@ -1,7 +1,7 @@
-#name : acomponents cppunit class define
+#name : sp cppunit class define
 # --
 #include <cppunit/TestAssert.h>
-#include <acomponents/${1:`(file-name-nondirectory
+#include <sp/${1:`(file-name-nondirectory
                             (directory-file-name
                              (file-name-directory
                               (directory-file-name
@@ -9,10 +9,9 @@
                                                                   buffer-file-name)`}.h>
 
 using namespace std;
-using namespace acomponents::query;
 
-BEGIN_ACOMPONENTS_NAMESPACE($1);
-ACOMPONENTS_LOG_SETUP($1, ${3:`(file-name-delemited-to-camel-case buffer-file-name)`});
+BEGIN_SP_NAMESPACE($1);
+SP_BASIC_LOG_SETUP($1, ${3:`(file-name-delemited-to-camel-case buffer-file-name)`});
 
 CPPUNIT_TEST_SUITE_REGISTRATION($3);
 
@@ -23,11 +22,11 @@ $3::~$3() {
 }
 
 void $3::setUp() { 
-    ACOMPONENTS_LOG(DEBUG, "setUp!");
+    SP_LOG(DEBUG, "setUp!");
 }
 
 void $3::tearDown() { 
-    ACOMPONENTS_LOG(DEBUG, "tearDown!");
+    SP_LOG(DEBUG, "tearDown!");
 }
 
-END_ACOMPONENTS_NAMESPACE($1);
+END_SP_NAMESPACE($1);
